@@ -7,24 +7,33 @@
 
 <body>
   <div class="container bg-principal">
-    <div class="card">
-      <div class="row">
-        <div class="col-4">
-          <h2 class="control atras"><i class="fas fa-step-backward"></i></h2>
+    <!-- <div class="card"> -->
+      <!-- <section class=""> -->
+        <div class=" our-webcoderskull" style="padding: 35px;">
+          <div class="row heading heading-icon">
+            <h2>Top 10 Artistas</h2>
         </div>
-        <div class="col-4">
-          <h2 class="control play"><i class="far fa-play-circle"></i></h2>
+          <ul class="row">
+            <li *ngFor="let art of dataArtis; let i = index" class="col-12 col-md-6 col-lg-3" style="padding: 35px 35px 0px 35px;">
+                <div class="cnt-block equal-hight">
+                  <figure *ngIf="i == 0"><img src="http://static.rhap.com/img/150x100/3/4/4/3/28383443_150x100.jpg" class="img-responsive" alt=""></figure>
+                  <figure *ngIf="i == 1"><img src="http://static.rhap.com/img/150x100/6/8/7/2/7572786_150x100.jpg" class="img-responsive" alt=""></figure>
+                  <figure *ngIf="i == 2"><img src="http://static.rhap.com/img/150x100/1/2/8/0/26450821_150x100.jpeg" class="img-responsive" alt=""></figure>
+                  <figure *ngIf="i == 3"><img src="http://static.rhap.com/img/150x100/1/8/6/4/22734681_150x100.jpg" class="img-responsive" alt=""></figure>
+                  <figure *ngIf="i == 4"><img src="http://static.rhap.com/img/150x100/5/0/7/2/7862705_150x100.jpg" class="img-responsive" alt=""></figure>
+                  <figure *ngIf="i == 5"><img src="http://static.rhap.com/img/150x100/9/6/9/8/7858969_150x100.jpg" class="img-responsive" alt=""></figure>
+                  <figure *ngIf="i == 6"><img src="http://static.rhap.com/img/150x100/0/6/9/6/21816960_150x100.jpg" class="img-responsive" alt=""></figure>
+                  <figure *ngIf="i == 7"><img src="http://static.rhap.com/img/150x100/9/7/2/3/12493279_150x100.jpg" class="img-responsive" alt=""></figure>
+                  <figure *ngIf="i == 8"><img src="http://static.rhap.com/img/150x100/4/5/2/8/7688254_150x100.jpg" class="img-responsive" alt=""></figure>
+                  <figure *ngIf="i == 9"><img src="http://static.rhap.com/img/150x100/3/5/2/0/7570253_150x100.jpg" class="img-responsive" alt=""></figure>
+                  <h3>{{art['name']}}</h3>
+                </div>
+            </li>
+          </ul>
         </div>
-        <div class="col-4">
-          <h2 class="control pause"><i class="far fa-pause-circle"></i></h2>
-        </div>
-        <div class="col-4">
-          <h2 class="control adelante"><i class="fas fa-step-forward"></i></h2>
-        </div>
-        <div id="musica-temporal"></div>
-      </div>
+      <!-- </section> -->
     </div>
-  </div>
+  <!-- </div> -->
 </body>
 
 </html>

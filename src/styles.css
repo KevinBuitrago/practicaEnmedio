@@ -1,127 +1,278 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Yellowtail&display=swap');
+
 :root {
-    --principal: rgb(0, 0, 0);
-    --secundario: rgba(101, 180, 194, 0.972);
-    --texto: rgba(240, 251, 252, 0.801);
-    --font-principal:'Roboto', sans-serif;
-    --font-secundario:'Yellowtail', cursive;
+  --principal: rgb(0, 0, 0);
+  --secundario: rgba(101, 180, 194, 0.972);
+  --texto: rgba(240, 251, 252, 0.801);
+  --font-principal: 'Roboto', sans-serif;
+  --font-secundario: 'Yellowtail', cursive;
 }
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: var(--font-principal);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-principal);
 }
 
 
-.bg-principal{
-    background: var(--principal);
-}
-.bg-secundario{
-    background: var(--secundario);
-}
-.text-principal{
-    color: var(--principal);
-}
-.text-secundario{
-    color: var(--secundario);
-}
-.text-texto{
-    color: var(--texto);
-}
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow-y: scroll;
-}
-.row{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-.col-2,.col-3,.col-4{
-    padding: 10px;
-}
-.col-2{
-    flex: 1 0 calc(50% - 10px);
-}
-.col-3{
-    flex: 1 0 calc(33.3% - 10px);
-}
-.col-4{
-    flex: 1 0 calc(25% - 10px);
-}
-.logo{
-    font-size: 30px;
-    color: var(--secundario);
-    font-family: var(--font-secundario);
-}
-.card{
-    width:92%;
-    height:92%;
-    border-radius: .5rem;
-    border: solid .5px rgba(163, 163, 163, 0.226);
-}
-.card-content{
-    height: 50%;
-    display: flex;
-    align-items: center;
-}
-.card-image img{
-    width: 96%;
-    display: block;
-    margin: auto auto;
+.bg-principal {
+  background: var(--principal);
 }
 
-#files{
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
-}
-.carga{
-    text-align: right;
-    font-size: 30px;
-}
-.card-header{
-    border-bottom:solid .5px var(--secundario) ;
-}
-.control{
-    font-size: 50px;
-    text-align: center;
-    color: var(--secundario);
-    cursor: pointer;
+.bg-secundario {
+  background: var(--secundario);
 }
 
-ul{
-    margin-top: 10px;
-    list-style:none;
-    color: white;
-    width: 100%;
+.text-principal {
+  color: var(--principal);
 }
-.list-item{
-    padding: 10px;
-    border-top: solid .3px var(--texto);
+
+.text-secundario {
+  color: var(--secundario);
+}
+
+.text-texto {
+  color: var(--texto);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* overflow-y: scroll; */
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.col-2,
+.col-3,
+.col-4 {
+  padding: 10px;
+}
+
+.col-2 {
+  flex: 1 0 calc(50% - 10px);
+}
+
+.col-3 {
+  flex: 1 0 calc(33.3% - 10px);
+}
+
+.col-4 {
+  flex: 1 0 calc(25% - 10px);
+}
+
+.logo {
+  font-size: 30px;
+  color: var(--secundario);
+  font-family: var(--font-secundario);
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  border-radius: .5rem;
+  border: solid .5px rgba(163, 163, 163, 0.226);
+}
+
+.card-content {
+  height: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.card-image img {
+  width: 96%;
+  display: block;
+  margin: auto auto;
+}
+
+#files {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.carga {
+  text-align: right;
+  font-size: 30px;
+}
+
+.card-header {
+  border-bottom: solid .5px var(--secundario);
+}
+
+.control {
+  font-size: 50px;
+  text-align: center;
+  color: var(--secundario);
+  cursor: pointer;
+}
+
+ul {
+  margin-top: 10px;
+  list-style: none;
+  color: white;
+  width: 100%;
+}
+
+.list-item {
+  padding: 10px;
+  border-top: solid .3px var(--texto);
 
 }
-#name-music{
-    font-size: 15px;
+
+#name-music {
+  font-size: 15px;
 }
+
 @media screen and (min-width: 450px) {
-  .card{
-      width: 70%;
-  }
-  .card-image img{
+  .card-image img {
     width: 70%;
   }
 }
-.dashboard-sideBar{
-  Width:245px;
+
+.dashboard-sideBar {
+  Width: 245px;
   Height: 52vw;
   margin-left: -5vw;
   background-color: white;
+}
+
+/*-------------------------------------*/
+.row.heading h2 {
+  color: #fff;
+  font-size: 52.52px;
+  line-height: 95px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.heading.heading-icon {
+  display: block;
+}
+
+.padding-lg {
+  display: block;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.practice-area.padding-lg {
+  padding-bottom: 55px;
+  padding-top: 55px;
+}
+
+.practice-area .inner {
+  border: 1px solid #999999;
+  text-align: center;
+  margin-bottom: 28px;
+  padding: 40px 25px;
+}
+
+.our-webcoderskull .cnt-block:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  border: 0;
+}
+
+.practice-area .inner h3 {
+  color: #3c3c3c;
+  font-size: 24px;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  padding: 10px 0;
+}
+
+.practice-area .inner p {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+.practice-area .inner img {
+  display: inline-block;
+}
+
+
+.our-webcoderskull .cnt-block {
+  float: left;
+  width: 100%;
+  background: #433F3E;
+  padding: 30px 20px;
+  text-align: center;
+  /* margin: 0 0 28px; */
+  height: 198px;
+  border-radius: 5%;
+}
+
+.our-webcoderskull .cnt-block figure {
+  width: 120px;
+  height: 120px;
+  border-radius: 5%;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.our-webcoderskull .cnt-block img {
+  width: 120px;
+  height: 120px;
+  border-radius: 5%;
+}
+
+.our-webcoderskull .cnt-block h3 {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.our-webcoderskull .cnt-block h3 a {
+  text-decoration: none;
+  color: white;
+}
+
+.our-webcoderskull .cnt-block h3 a:hover {
+  color: #337ab7;
+}
+
+.our-webcoderskull .cnt-block p {
+  color: white;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.our-webcoderskull .cnt-block .follow-us {
+  margin: 20px 0 0;
+}
+
+.our-webcoderskull .cnt-block .follow-us li {
+  display: inline-block;
+  width: auto;
+  margin: 0 5px;
+}
+
+.our-webcoderskull .cnt-block .follow-us li .fa {
+  font-size: 24px;
+  color: #767676;
+}
+
+.our-webcoderskull .cnt-block .follow-us li .fa:hover {
+  color: #025a8e;
 }
