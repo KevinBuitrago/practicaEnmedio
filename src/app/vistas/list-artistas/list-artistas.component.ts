@@ -8,8 +8,7 @@ import {Router} from '@angular/router'
   styleUrls: ['./list-artistas.component.css']
 })
 export class ListArtistasComponent implements OnInit {
-  dataArtis = [
-  ];
+  dataArtis = [];
   constructor( private api: ApiService, private router: Router) { }
 
   ngOnInit(): void {
