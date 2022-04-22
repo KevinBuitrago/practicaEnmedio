@@ -2,7 +2,7 @@
 .containerBio {
   display: flex;
   align-items: center;
-  height: 140vh !important;
+  height: 100vh !important;
 }
 .custab{
   border: 1px solid #ccc;
@@ -23,15 +23,15 @@
 }
 .wellBio {
   min-height: 0px;
-  padding: 19px;
-  margin-bottom: 20%;
-  margin-left: 28%;
-  width: 114%;
+  margin-bottom: 25%;
+  margin-left: 4%;
+  width: 251%;
   height: 69%;
   color: white;
+  padding: 5%;
 }
 img {
-  max-width: 15%;
+  max-width: 54%;
   width: auto\9;
   height: auto;
   vertical-align: middle;
@@ -46,7 +46,15 @@ img {
   border: 0;
   -ms-interpolation-mode: bicubic;
 }
-.table th{
+.tableBio{
+  font-size: 15px;
+  /* padding: 23px; */
+  line-height: 20px;
+  vertical-align: top;
+  text-align: left;
+  border-top: 0px solid #dddddd;
+}
+.tableBio th{
   padding: 23px;
   line-height: 20px;
   vertical-align: top;
@@ -56,14 +64,13 @@ img {
   border-bottom: 1px solid #dddddd;
 
 }
- .table td{
+ .tableBio td{
   font-size: 15px;
-  padding: 23px;
+  padding: 10px;
   line-height: 20px;
   vertical-align: top;
   text-align: left;
   border-top: 0px solid #dddddd;
-  cursor: pointer
 }
 
 .main {
@@ -122,4 +129,24 @@ img {
   font-weight: 300;
 }
 
-
+.nav {
+  width: 36px;
+  height: 36px;
+  vertical-align: top;
+  background-color: rgb(51, 47, 47);
+  border: 2px solid #3c3c3c;
+  border-radius: 50%;
+  outline: none;
+  margin: 0 7px;
+  cursor: pointer;
+}
+.nav:hover {
+  background-color: #3c3c3c;
+}
+.nav img {
+  height: 20px;
+  vertical-align: middle;
+}
+.pad {
+  padding-left: 3px;
+}

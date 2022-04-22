@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <div class="containerBio bg-principal">
+    <div class="wellBio">
+      <table class="tableBio">
+        <thead>
+          <tr>
+            <!-- <th style="width: 5%;">#</th> -->
+            <th style="width: 15%;">Titulo</th>
+            <th style="width: 10%;">Artista</th>
+            <th style="width: 20%;">Album</th>
+            <th style="width: 5%;"></th>
+
+
+            <!-- <th style="width: 36px;"></th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of infoTracks | slice:desde:hasta ">
+            <!-- <td> {{i+1}} </td> -->
+            <td> {{data['name']}} </td>
+            <td> {{data['artistName']}} </td>
+            <td> {{data['albumName']}} </td>
+            <td><button id="play" class="nav" (click)="playTracks(data['previewURL'])"><img class="pad" src="http://abarcarodriguez.com/lab/play.png" /></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <mat-paginator [length]="infoTracks.length" [pageSize]="pageSize" (page)="cambiarPagina($event)">
+      </mat-paginator>
+    </div>
+  </div>
+</body>
+
+</html>
+<app-footer></app-footer>
+

@@ -1,1 +1,44 @@
-<p>artista works!</p>
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css"/>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<div class="containerBio bg-principal">
+  <div class="sidenav">
+    <div class="login-main-text">
+      <img [src]="dataArtits['img']"
+            class="img-responsive imgBio" alt="">
+      <h2>{{dataArtits.name}}<br> <br>{{dataArtits.bios[0].title}}</h2>
+      <p>{{dataArtits.bios[0].bio}}</p>
+      <!-- <br> -->
+      <h5>{{dataArtits.bios[0].author}}</h5>
+    </div>
+  </div>
+  <div class="wellBio">
+    <div class="row heading heading-icon">
+      <h2>Albums</h2>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th style="width: 1%;">#</th>
+          <th style="width: 50%;">Titulo</th>
+          <th style="width: 35%;">Artista</th>
+          <th style="width: 15%;">Lanzamiento</th>
+
+          <!-- <th style="width: 36px;"></th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of dataAlbums; let i = index" (click)="changeOfView(data['id'])">
+          <td style="padding-top: 4%;">{{i+1}}</td>
+          <td><img [src]="data['img']"
+            class="img-responsive" alt=""> {{data['name']}}</td>
+          <td style="padding-top: 4%;">{{data['artistName']}}</td>
+          <td style="padding-top: 4%;">{{data['released'] | date}}</td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-footer></app-footer>
+
