@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import * as $ from 'jquery'
 import { ListTracksService } from 'src/app/list-tracks.service';
 
@@ -11,68 +11,81 @@ export class FooterComponent implements OnInit {
   @Input() dataEntrante: any
   constructor(private service: ListTracksService) { }
   dataPlay: any = {}
-  btnCargar = $('#files');
-  listaMusica=[]
-  btnPause=$('.pause');
-  btnPlay=$('.play');
-  btnSiguiente=$('.adelante');
-  btnAtras=$('.atras');
-  musicaTemporal: any =$('#musica-temporal');
-
+  isdata : any
+  listaMusica: any = []
+  musicaTemporal: any = $('#musica-temporal');
+  idTacks: any = "";
+  isPausa: boolean = false
+  srcAudi: any =""
+  audio: any
   ngOnInit(): void {
+    console.log("data.data", this.listaMusica);
     this.service.Disparador.subscribe(data => {
+
       this.listaMusica = data.data;
-      console.log(this.listaMusica);
-
-
+      console.log(this.listaMusica.id);
+      this.idTacks = this.listaMusica.id;
+      console.log(this.listaMusica.listTracks[this.idTacks]);
+      console.log("----------------------------------------------");
+      this.reproducirMusica();
     })
   }
 
-  // reproducirMusica() {
+  reproducirMusica() {
+    // this.musicaTemporal.innerHTML = `<audio src="${this.listaMusica.listTracks[this.idTacks]}" autoplay></audio><input type="hidden" value="${this.listaMusica.listTracks[this.idTacks]}">`;
+    const srcMusica = this.listaMusica.listTracks[this.idTacks];
+    this.cargarTemporal(srcMusica)
 
-  //     this.musicaTemporal.innerHTML = `<audio src="${e.target.children[0].value}" autoplay></audio><input type="hidden" value="${e.target.children[0].value}">`;
-  //     const srcMusica = e.target.children[0].value;
-  //     const nombreMusica = e.target.children[1].value;
-  //     this.cargarTemporal(srcMusica, nombreMusica)
+  }
 
-  // }
-  // cargarTemporal(src: any, nombreM: any) {
-  //   this.musicaTemporal.innerHTML = `<audio src="${src}" autoplay></audio><input type="hidden" value="${src}">`;
-  //   $('#name-music').innerText = nombreM;
-  //   this.siguienteAutomatico();
-  // }
-  // pausarMusica() {
-  //   this.musicaTemporal.children[0].pause();
-  // }
-  // continuarMusica() {
-  //   this.musicaTemporal.children[0].play();
-  // }
-  // siguienteMusica() {
-  //   const musicArray = Array.from(this.listaMusica);
-  //   const actual = this.musicaTemporal.children[1].value;
-  //   musicArray.forEach(limusica => {
-  //     if (limusica.children[0].value === actual) {
-  //       const siguientemusic = limusica.nextSibling.children[0].value;
-  //       const nombreSiguiente = limusica.nextSibling.children[1].value;
-  //       this.cargarTemporal(siguientemusic, nombreSiguiente)
+  cargarTemporal(src: any) {
+    this.isPausa = true;
+    this.audio = new Audio(src);
+    this.audio.play();
 
-  //     }
-  //   });
-  // }
-  // anteriorMusica() {
-  //   const musicArray = Array.from(this.listaMusica.children);
-  //   const actual = this.musicaTemporal.children[1].value;
-  //   musicArray.forEach(limusica => {
-  //     if (limusica.children[0].value === actual) {
-  //       const anteriormusic = limusica.previousElementSibling.children[0].value;
-  //       const nombreAnterior = limusica.previousElementSibling.children[1].value;
-  //       this.cargarTemporal(anteriormusic, nombreAnterior)
-  //     }
-  //   });
-  // }
-  // siguienteAutomatico() {
-  //   const actual = this.musicaTemporal.children[0];
-  //   actual.addEventListener('ended',  this.siguienteMusica);
-  // }
+
+
+    this.siguienteAutomatico();
+  }
+
+  pausarMusica() {
+    if (this.isPausa) {
+      this.audio.pause();
+      this.isPausa  = false
+    } else {
+      this.audio.play();
+      this.isPausa  = true
+    }
+  }
+
+  siguienteMusica() {
+    if (this.listaMusica.listTracks.length - 1  === this.idTacks) {
+      this.idTacks = 0
+    } else {
+      this.idTacks = this.idTacks + 1
+    }
+    const siguientemusic = this.listaMusica.listTracks[this.idTacks];
+    this.cargarTemporal(siguientemusic)
+    console.log(this.idTacks);
+  }
+
+  anteriorMusica() {
+    if (this.idTacks == 0) {
+      this.idTacks = this.listaMusica.listTracks.length -1
+    } else {
+      this.idTacks = this.idTacks - 1
+    }
+    console.log(this.idTacks);
+
+    const anteriormusic = this.listaMusica.listTracks[this.idTacks];
+    this.cargarTemporal(anteriormusic)
+  }
+
+  siguienteAutomatico() {
+    // const actual = this.musicaTemporal.children;
+    // console.log(actual);
+
+    // actual.addEventListener('ended', this.siguienteMusica);
+  }
 
 }

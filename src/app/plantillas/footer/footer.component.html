@@ -1,14 +1,15 @@
+
 <footer>
   <div class="info">
     <div class="cont">
       <div><br></div>
-        <button id="prev" class="nav">
+        <button id="prev" class="nav" (click)="anteriorMusica()">
             <img src="http://abarcarodriguez.com/lab/prev.png" />
         </button>
-        <button id="play" class="nav">
+        <button id="play" class="nav" (click)="pausarMusica()">
             <img class="pad" src="http://abarcarodriguez.com/lab/play.png" />
         </button>
-        <button id="next" class="nav">
+        <button id="next" class="nav" (click)="siguienteMusica()">
             <img src="http://abarcarodriguez.com/lab/next.png" />
         </button>
     </div>

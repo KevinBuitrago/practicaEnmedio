@@ -30,12 +30,10 @@ export class TracksAlbumsComponent implements OnInit {
       this.infoTracks.forEach(element => {
         this.listTracks.push(element.previewURL)
       });
-      console.log("listTracks", this.listTracks);
 
     })
   }
   cambiarPagina(even: PageEvent) {
-    console.log(even, "even");
     this.desde = even.pageIndex * even.pageSize;
     this.hasta = this.desde + even.pageSize
   }
@@ -44,11 +42,8 @@ export class TracksAlbumsComponent implements OnInit {
     for (const key in this.listTracks) {
       cont = cont + 1;
       if (this.listTracks[key] === preview) {
-        console.log(this.listTracks[key]);
-        console.log(this.listTracks[cont- 1]);
 
 
-        console.log(cont, "cont");
         break;
       }
     }
