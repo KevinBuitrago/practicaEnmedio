@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import * as $ from 'jquery'
+import { ListTracksService } from 'src/app/list-tracks.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,51 +8,32 @@ import * as $ from 'jquery'
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-
-  constructor() { }
+  @Input() dataEntrante: any
+  constructor(private service: ListTracksService) { }
   dataPlay: any = {}
+  btnCargar = $('#files');
+  listaMusica=[]
+  btnPause=$('.pause');
+  btnPlay=$('.play');
+  btnSiguiente=$('.adelante');
+  btnAtras=$('.atras');
+  musicaTemporal: any =$('#musica-temporal');
 
   ngOnInit(): void {
-    console.log("listTracks", this.dataPlay);
+    this.service.Disparador.subscribe(data => {
+      this.listaMusica = data.data;
+      console.log(this.listaMusica);
+
+
+    })
   }
 
-  // musicaTemporal: any = $('#musica-temporal');
-  // listaMusica:any = []
-  // cargarMusica(e: any) {
-  //   //console.log(e.target.files);
-  //   const files = Array.from(e.target.files);
-  //   files.forEach(f => {
-  //     const reader = new FileReader();
-  //     reader.onload = (function (archivo: any) {
-  //       return function (evt: any) {
-  //         const li = document.createElement('li');
-  //         //li.className='list-item';
-  //         li.classList.add('list-item')
-  //         li.id = 'music';
+  // reproducirMusica() {
 
-  //         li.innerHTML = `
-  //               <input type="hidden" value="${evt.target.result}">
-  //               <input type="hidden" value="${archivo.name}">
-  //               <audio src="${evt.target.result}"></audio>
-  //               ${archivo.name}
-  //           `;
-  //           // this.listaMusica.appendChild(li);
-  //       }
-  //     })(f);
-  //     reader.readAsDataURL(f);
-  //   });
-  // }
-
-  // reproducirMusica(e: any) {
-  //   /*console.log(e.target.children[2])
-  //   e.target.children[2].play();*/
-  //   //console.log(e.target.classList.contains('list-item'))
-  //   if (e.target.classList.contains('list-item')) {
   //     this.musicaTemporal.innerHTML = `<audio src="${e.target.children[0].value}" autoplay></audio><input type="hidden" value="${e.target.children[0].value}">`;
   //     const srcMusica = e.target.children[0].value;
   //     const nombreMusica = e.target.children[1].value;
   //     this.cargarTemporal(srcMusica, nombreMusica)
-  //   }
 
   // }
   // cargarTemporal(src: any, nombreM: any) {
@@ -66,7 +48,7 @@ export class FooterComponent implements OnInit {
   //   this.musicaTemporal.children[0].play();
   // }
   // siguienteMusica() {
-  //   const musicArray = Array.from(this.listaMusica.children);
+  //   const musicArray = Array.from(this.listaMusica);
   //   const actual = this.musicaTemporal.children[1].value;
   //   musicArray.forEach(limusica => {
   //     if (limusica.children[0].value === actual) {

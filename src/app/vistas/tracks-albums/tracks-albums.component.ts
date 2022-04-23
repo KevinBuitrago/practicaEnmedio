@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ResponseTrasksAlbums } from '../../modules/getArtistas'
 import { PageEvent } from '@angular/material/paginator';
 import { FooterComponent } from '../../plantillas/footer/footer.component';
+import {ListTracksService} from '../../list-tracks.service'
 
 
 @Component({
@@ -13,7 +14,7 @@ import { FooterComponent } from '../../plantillas/footer/footer.component';
 })
 export class TracksAlbumsComponent implements OnInit {
 
-  constructor(private router: Router, private api: ApiService, private activeRouter: ActivatedRoute) { }
+  constructor(private router: Router, private api: ApiService, private activeRouter: ActivatedRoute, private service: ListTracksService ) { }
   public infoTracks: any[] = []
   pageSize = 8;
   desde: number = 0
@@ -51,10 +52,14 @@ export class TracksAlbumsComponent implements OnInit {
         break;
       }
     }
-    const dataPlay = {
+    this.dataPlay = {
       listTracks: this.listTracks,
       id: cont- 1
     }
+
+    this.service.Disparador.emit({
+      data: this.dataPlay
+    })
 
   }
 
